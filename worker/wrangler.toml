@@ -1,0 +1,20 @@
+name = "streammood-edge"
+main = "src/index.ts"
+compatibility_date = "2024-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Automatic daily Indian OTT catalog refresh cron (runs at 03:00 AM IST / 21:30 UTC daily)
+[triggers]
+crons = ["30 21 * * *"]
+
+# Global environment variables
+[vars]
+ENVIRONMENT = "production"
+DEFAULT_WATCH_REGION = "IN"
+
+# Optional Cloudflare KV binding for edge caching
+# Run 'npx wrangler kv:namespace create STREAMMOOD_KV' to create your KV namespace
+# and replace the id below:
+# [[kv_namespaces]]
+# binding = "STREAMMOOD_KV"
+# id = "your-kv-namespace-id"
